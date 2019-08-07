@@ -1,0 +1,9 @@
+function LabelMitoticCells(PhaseContrastFrame, MergedComponentCenters, Pattern, CvlShape, ...
+    CellDiameter, BorderWidth, LabelColor, CvlFile)    
+    MergedComponentCenters = Cvlmn2Origmn(MergedComponentCenters, ...
+        size(Pattern, 1), size(Pattern, 2), CvlShape);
+    for i = 1 : size(MergedComponentCenters, 1)
+        PhaseContrastFrame = Circle(PhaseContrastFrame, MergedComponentCenters(i, 1),...
+            MergedComponentCenters(i, 2), CellDiameter / 2, CellDiameter / 2 + BorderWidth, LabelColor);
+    end
+    imwrite(PhaseContrastFrame, CvlFile, 'Compression', 'none', 'writemode', 'append');
