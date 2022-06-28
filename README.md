@@ -1,8 +1,6 @@
 # Acknowledgments
 **This toolkit used/adapted the following codes from MathWorks File Exchange:**
 
-[Faster Kuwahara filter](https://www.mathworks.com/matlabcentral/fileexchange/15027-faster-kuwahara-filter) by Luca Balbi;
-
 Please refer to the links for corresponding licences.
 
 # References
