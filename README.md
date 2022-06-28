@@ -4,6 +4,8 @@
 # Acknowledgments
 **This toolkit used/adapted the following codes from MathWorks File Exchange:**
 
+[cprintf](https://www.mathworks.com/matlabcentral/fileexchange/24093-cprintf-display-formatted-colored-text-in-command-window) (Revision: 1.10) by Yair M. Altman
+
 Please refer to the links for corresponding licences.
 
 # References
