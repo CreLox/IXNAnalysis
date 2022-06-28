@@ -1,3 +1,6 @@
+# Notes
+``gmailMessage`` no longer works because as of June 2022, Google has permanently banned the use of third-party apps for Gmail sign-in using only the username and password.
+
 # Acknowledgments
 **This toolkit used/adapted the following codes from MathWorks File Exchange:**
 
