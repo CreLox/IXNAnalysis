@@ -1,5 +1,5 @@
 function CorrespondingCellImage = getCorrespondingCellImage16(Center_m, Center_n, ...
-    phaseContrastFrameIndex, CompositeFile, Info, ChannelNum, Size)
+    FrameIndex, CompositeFile, Info, ChannelNum, Size, DNAStainingStack)
     Center_m = round(Center_m);
     Center_n = round(Center_n);
     HalfSize = floor(Size / 2);
@@ -11,7 +11,12 @@ function CorrespondingCellImage = getCorrespondingCellImage16(Center_m, Center_n
     DownValid = min(max_m - Center_m, HalfSize);
     RightValid = min(max_n - Center_n, HalfSize);
     
-    CorrespondingFrame = imread(CompositeFile, phaseContrastFrameIndex * ChannelNum, 'Info', Info);
+    if strcmpi(DNAStainingStack, 'none')
+        CorrespondingFrame = imread(CompositeFile, FrameIndex * ChannelNum, ...
+            'Info', Info);
+    else
+        CorrespondingFrame = imread(DNAStainingStack, FrameIndex);
+    end
     CorrespondingCellImage = uint16(zeros(Size, Size));
     CorrespondingCellImage(HalfSize + 1 - UpValid : HalfSize + 1 + DownValid, ...
         HalfSize + 1 - LeftValid : HalfSize + 1 + RightValid) = ...

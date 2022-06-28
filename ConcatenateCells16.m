@@ -6,8 +6,9 @@ function ConcatenateFig = ConcatenateCells16(Track, CompositeFile, Info, Channel
     Size = HalfSize * 2 + 1; % Convert Size to an odd number
     max_m = Info.Height;
     max_n = Info.Width;
-    WhiteColorValue = 4000;
-    GrayColorValue = 2000;
+    WhiteColorValue = 1500;
+    IsolatorWhiteColorValue = 3000;
+    GrayColorValue = 1000;
     
     BeforeFrames = max(1, Track(1, 3) - BeforeAfter) : (Track(1, 3) - 1);
     BeforeFig = uint16(ones(Size, length(BeforeFrames) * (Size + IsolatorSize) + BeforeAfterSpacer) * GrayColorValue);
@@ -38,7 +39,7 @@ function ConcatenateFig = ConcatenateCells16(Track, CompositeFile, Info, Channel
     else
         Show = [1, 2, 3 : Interval : TotalFrameNum - 2, TotalFrameNum - 1, TotalFrameNum];
     end
-    ActualFig = uint16(ones(Size, length(Show) * Size + (length(Show) - 1) * IsolatorSize) * WhiteColorValue);
+    ActualFig = uint16(ones(Size, length(Show) * Size + (length(Show) - 1) * IsolatorSize) * IsolatorWhiteColorValue);
     j = 0;
     for i = Show
         j = j + 1;

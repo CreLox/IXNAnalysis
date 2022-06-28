@@ -6,12 +6,13 @@ function ConcatenateFig = ConcatenateCells16_Last10(Track, CompositeFile, Info, 
     Size = HalfSize * 2 + 1; % Convert Size to an odd number
     max_m = Info.Height;
     max_n = Info.Width;
-    WhiteColorValue = 4000;
-    GrayColorValue = 2000;
+    WhiteColorValue = 1500;
+    IsolatorWhiteColorValue = 3000;
+    GrayColorValue = 1000;
     
     TotalFrameNum = size(Track, 1);
     Show = max(1, TotalFrameNum - 9) : TotalFrameNum;
-    ActualFig = uint16(ones(Size, length(Show) * Size + (length(Show) - 1) * IsolatorSize) * WhiteColorValue);
+    ActualFig = uint16(ones(Size, length(Show) * Size + (length(Show) - 1) * IsolatorSize) * IsolatorWhiteColorValue);
     j = 0;
     for i = Show
         j = j + 1;

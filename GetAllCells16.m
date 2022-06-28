@@ -4,7 +4,7 @@ function AllImgStruct = GetAllCells16(Track, CompositeFile, Info, ChannelNum, Si
     Size = HalfSize * 2 + 1; % Convert Size to an odd number
     max_m = Info.Height;
     max_n = Info.Width;
-    WhiteColorValue = 4000;
+    WhiteColorValue = 1500;
     
     TotalFrameNum = size(Track, 1);
     AllImgStruct = cell(1, numel(Info) / ChannelNum);

@@ -4,7 +4,8 @@ function StringFig = lcdnumber(NumericString, Size, Spacer, Color)
         error('Input string contains an invalid character.');
     end
     if ~exist('Color', 'var') || isempty(Color)
-        Color = 'b';
+        WhiteColorValue = 1500;
+        Color = WhiteColorValue;
     end
     
     Display =  [0, 0, 0, 0, 0, 0, 0; % space

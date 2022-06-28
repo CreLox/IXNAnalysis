@@ -15,7 +15,12 @@ function [Track, Stats] = TrackMitoticCell(MitosisList, CorrespondingTrackingNum
     i = 1;
     ContinueSearching = LinkingDepth;
     while (i <= ListLength) && ContinueSearching
-        iswanted = find(MitosisList{1, i}(:, 4) == CorrespondingTrackingNum, 1);
+        if ~isempty(MitosisList{1, i})
+            iswanted = find(MitosisList{1, i}(:, 4) == ...
+                CorrespondingTrackingNum, 1);
+        else
+            iswanted = [];
+        end
         if ~isempty(iswanted)
             if ~Found
                 Stats(StartingFrame) = i;

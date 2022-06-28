@@ -50,29 +50,39 @@ function IncucyteAnalysisGUI_OpeningFcn(hObject, eventdata, handles, varargin)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 % varargin   command line arguments to IncucyteAnalysisGUI (see VARARGIN)
-movegui(hObject, 'center');
+
+% Center GUI
+% movegui(hObject, 'center');
+% OR: enlarge figure to the entire screen
+set(hObject, 'units', 'normalized', 'outerposition', [0, 0, 1, 1]);
 
 handles.loopctrl = varargin{1};
 set(handles.CurrentFrame, 'String', sprintf('%d / %d', varargin{1}, varargin{2}));
-
 handles.stats = varargin{3};
+handles.track = varargin{4};
+handles.ImgData = varargin{5};
+handles.DisplayProperty = varargin{6};
 
-handles.full = varargin{4};
 axes(handles.Montage);
-imshow(handles.full, []);
+imshow(ConcatenateCells16(handles.track, handles.ImgData.FileName, ...
+    handles.ImgData.Info, handles.ImgData.ChannelNum, ...
+    handles.DisplayProperty.Diameter, handles.DisplayProperty.Isolator), []);
 
-handles.tail = varargin{5};
-
-handles.track = varargin{6};
 axes(handles.RedChannel);
 errorbar(handles.track(:, 3), handles.track(:, 4), handles.track(:, 5), 'r');
 
-handles.images = varargin{7};
-SliderStep = 1 / (length(handles.images) - 1);
-set(handles.CellSlider, 'SliderStep', [SliderStep, SliderStep * 10], ...
-    'Min', 1, 'Max', length(handles.images), 'Value', handles.track(1, 3));
 axes(handles.Cell);
-imshow(handles.images{handles.track(1, 3)}, []);
+SliderStep = 1 / (handles.ImgData.TotalFrameNum - 1);
+set(handles.CellSlider, 'SliderStep', [SliderStep, SliderStep * 10], ...
+    'Min', 1, 'Max', handles.ImgData.TotalFrameNum, 'Value', handles.track(1, 3));
+CorrespondingCell = getCorrespondingCellImage16(handles.track(1, 1), ...
+    handles.track(1, 2), handles.track(1, 3), handles.ImgData.FileName, ...
+    handles.ImgData.Info, handles.ImgData.ChannelNum, ...
+    handles.DisplayProperty.Diameter, handles.ImgData.DNAStainingStack);
+Label = lcdnumber(sprintf('%d', handles.track(1, 3)), 2, 2);
+CorrespondingCell(1 : size(Label, 1), 1 : size(Label, 2)) = ...
+    uint16(CorrespondingCell(1 : size(Label, 1), 1 : size(Label, 2)) + Label);
+imshow(CorrespondingCell, []);
 
 set(hObject, 'CloseRequestFcn', @CloseRequestFcn);
 % Update handles structure
@@ -221,7 +231,9 @@ function ShowFull_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 axes(handles.Montage);
-imshow(handles.full, []);
+imshow(ConcatenateCells16(handles.track, handles.ImgData.FileName, ...
+    handles.ImgData.Info, handles.ImgData.ChannelNum, ...
+    handles.DisplayProperty.Diameter, handles.DisplayProperty.Isolator), []);
 
 % --- Executes on button press in ShowTail.
 function ShowTail_Callback(hObject, eventdata, handles)
@@ -229,7 +241,10 @@ function ShowTail_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 axes(handles.Montage);
-imshow(handles.tail, []);
+imshow(ConcatenateCells16_Last10(handles.track, ...
+    handles.ImgData.FileName, handles.ImgData.Info, ...
+    handles.ImgData.ChannelNum, handles.DisplayProperty.Diameter, ...
+    handles.DisplayProperty.Isolator), []);
 
 function Annotation_Callback(hObject, eventdata, handles)
 % hObject    handle to Annotation (see GCBO)
@@ -249,7 +264,6 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
     set(hObject,'BackgroundColor','white');
 end
 
-
 % --- Executes on slider movement.
 function CellSlider_Callback(hObject, eventdata, handles)
 % hObject    handle to CellSlider (see GCBO)
@@ -259,7 +273,18 @@ function CellSlider_Callback(hObject, eventdata, handles)
 % Hints: get(hObject,'Value') returns position of slider
 %        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
 axes(handles.Cell);
-imshow(handles.images{round(get(handles.CellSlider, 'Value'))}, []);
+CurrentNum = round(get(handles.CellSlider, 'Value'));
+ClosestIdx = find(abs(CurrentNum - handles.track(:, 3)) == ...
+    min(abs(CurrentNum - handles.track(:, 3))), 1);
+CorrespondingCell = getCorrespondingCellImage16(...
+    handles.track(ClosestIdx, 1), handles.track(ClosestIdx, 2), ...
+    CurrentNum, handles.ImgData.FileName, handles.ImgData.Info, ...
+    handles.ImgData.ChannelNum, handles.DisplayProperty.Diameter, ...
+    handles.ImgData.DNAStainingStack);
+Label = lcdnumber(sprintf('%d', CurrentNum), 2, 2);
+CorrespondingCell(1 : size(Label, 1), 1 : size(Label, 2)) = ...
+    uint16(CorrespondingCell(1 : size(Label, 1), 1 : size(Label, 2)) + Label);
+imshow(CorrespondingCell, []);
 
 % --- Executes during object creation, after setting all properties.
 function CellSlider_CreateFcn(hObject, eventdata, handles)
