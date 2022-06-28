@@ -1,14 +1,14 @@
 # Notes
-``gmailMessage`` no longer works because as of June 2022, Google has permanently banned the use of third-party apps for Gmail sign-in using only the username and password. The p-file has been removed from this repo and related error messaging functionality in all batch preprocessing scripts no longer works.
+``gmailMessage`` no longer works as of June 2022. Google has permanently banned the use of third-party apps for Gmail sign-in using only the username and password. Therefore, the ``gmailMessage`` p-file has been removed from this repo and related error messaging functionality in all batch-preprocessing scripts no longer works.
 
 # Acknowledgments
-**This repo incorporated/adapted the following codes from MathWorks File Exchange:**
+**This repo incorporated the following codes from MathWorks File Exchange:**
 
 [cprintf](https://www.mathworks.com/matlabcentral/fileexchange/24093-cprintf-display-formatted-colored-text-in-command-window) (Revision: 1.10) by Yair M. Altman
 
 [herrorbar](https://www.mathworks.com/matlabcentral/fileexchange/3963-herrorbar) by Jos van der Geest
 
-Please refer to the links for corresponding licences.
+Please refer to the links for their own licences.
 
 # References
 **This toolkit (or its previous version) was used in the following publications:**
