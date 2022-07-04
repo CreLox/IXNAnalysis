@@ -4,7 +4,7 @@
 2. https://www.mathworks.com/matlabcentral/answers/98467-why-do-i-receive-a-couldn-t-open-file-for-writing-error-when-using-imwrite-on-matlab-7-8-r2009a
 
 # Acknowledgments
-**This repo incorporated the following codes from MathWorks File Exchange:**
+**This repo has incorporated the following codes from MathWorks File Exchange:**
 
 [cprintf](https://www.mathworks.com/matlabcentral/fileexchange/24093-cprintf-display-formatted-colored-text-in-command-window) (Revision: 1.10) by Yair M. Altman, licensed under the [BSD-3](https://choosealicense.com/licenses/bsd-3-clause/)
 
