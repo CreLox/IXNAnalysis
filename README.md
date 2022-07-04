@@ -6,11 +6,11 @@
 # Acknowledgments
 **This repo incorporated the following codes from MathWorks File Exchange:**
 
-[cprintf](https://www.mathworks.com/matlabcentral/fileexchange/24093-cprintf-display-formatted-colored-text-in-command-window) (Revision: 1.10) by Yair M. Altman
+[cprintf](https://www.mathworks.com/matlabcentral/fileexchange/24093-cprintf-display-formatted-colored-text-in-command-window) (Revision: 1.10) by Yair M. Altman, licensed under the [BSD-3](https://choosealicense.com/licenses/bsd-3-clause/)
 
-[herrorbar](https://www.mathworks.com/matlabcentral/fileexchange/3963-herrorbar) by Jos van der Geest
+[herrorbar](https://www.mathworks.com/matlabcentral/fileexchange/3963-herrorbar) by Jos van der Geest, licensed under the [BSD-2](https://choosealicense.com/licenses/bsd-2-clause/)
 
-Please refer to the links for their own licences.
+The copyright of the two corresponding scripts, ``cprintf.m`` and ``herrorbar.m``, belongs to their original authors.
 
 # References
 **This toolkit (or its previous version) was used in the following publications:**
