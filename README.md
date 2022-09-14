@@ -15,6 +15,6 @@ The copyright of the two corresponding scripts, ``cprintf.m`` and ``herrorbar.m`
 # References
 **This toolkit (or its previous versions) was used in the following publications:**
 
-Chen, C., et al. "Ectopic activation of the spindle assembly checkpoint signaling cascade reveals its biochemical design." *Current Biology* 29.1 (2019): 104-119.
+Chen, C., et al. "Ectopic activation of the spindle assembly checkpoint signaling cascade reveals its biochemical design." *Current Biology* 29.1 (2019): 104-119. **(Please cite this paper if you used this toolkit in your work)**
 
 Banerjee, A., Chen, C., Humphrey, L., Tyson, J.J., Joglekar, A.P. “BubR1 recruitment to the kinetochore via Bub1 enhances Spindle Assembly Checkpoint signaling”. *Molecular Biology of the Cell* 33.10 (2022): br16. (AB and CC contributed equally to this work)
