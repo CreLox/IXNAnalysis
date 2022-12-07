@@ -1,7 +1,9 @@
 # Notes
-1. ``gmailMessage`` no longer works as of June 2022. Google has permanently banned the use of third-party apps for Gmail sign-in using only the username and password. Therefore, the ``gmailMessage`` p-file has been removed from this repo and related error messaging functionality in all batch-preprocessing scripts no longer works.
+1. Please read [this excerpt](https://github.com/CreLox/IXNAnalysis/blob/master/PipelineDiagram%2BBiasElimination.pdf) from [my thesis](https://deepblue.lib.umich.edu/handle/2027.42/174669) for a basic understanding of how IXNAnalysis functions.
 
-2. https://www.mathworks.com/matlabcentral/answers/98467-why-do-i-receive-a-couldn-t-open-file-for-writing-error-when-using-imwrite-on-matlab-7-8-r2009a
+2. ``gmailMessage`` no longer works as of June 2022. Google has permanently banned the use of third-party apps for Gmail sign-in using only the username and password. Therefore, the ``gmailMessage`` p-file has been removed from this repo and related error messaging functionality in all batch-preprocessing scripts no longer works.
+
+3. https://www.mathworks.com/matlabcentral/answers/98467-why-do-i-receive-a-couldn-t-open-file-for-writing-error-when-using-imwrite-on-matlab-7-8-r2009a
 
 # Acknowledgments
 **This repo has incorporated the following codes from MathWorks File Exchange:**
