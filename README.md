@@ -12,8 +12,6 @@
 
 [herrorbar](https://www.mathworks.com/matlabcentral/fileexchange/3963-herrorbar) by Jos van der Geest, licensed under the [BSD-2](https://choosealicense.com/licenses/bsd-2-clause/)
 
-The copyright of the two corresponding scripts, ``cprintf.m`` and ``herrorbar.m``, belongs to their original authors.
-
 # References
 **This toolkit (or its previous versions) was used in the following publications:**
 
